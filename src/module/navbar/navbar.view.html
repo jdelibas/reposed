@@ -1,0 +1,34 @@
+<style>
+    /* Create container to stop container height movement */
+    .search-input {
+        min-height: 34px; /* bootstrap input height */
+        position: relative;
+    }
+    .search-input .ng-hide-add {
+        animation: 0.3s flipOutX ease;
+        position: absolute;
+    }
+
+    .search-input .ng-hide-remove {
+        animation:0.5s flipInX ease;
+        position:absolute;
+    }
+</style>
+
+<div class="jumbotron" rp-trianglify>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+                <h1 ui-sref="root.home">reposed</h1>
+                <div class="search-input">
+                    <input class="form-control animated" typewrite text="repoNameList" initial-delay="1000"
+                           ng-click="hide.typewriter = true" ng-show="!hide.typewriter"
+                           />
+                    <input class="form-control animated" ng-model="searchText" ng-hide="!hide.typewriter"
+                           placeholder="repo or user/repo" ng-keyup="$event.keyCode === 13 && searchRepos(searchText)"
+                           rp-focus-on-show ng-blur="hide.typewriter = false" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
