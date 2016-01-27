@@ -5,9 +5,9 @@
         .module('rp.issues')
         .controller('rp.issueModal.controller', issueController);
 
-    issueController.$inject = ['$scope', '$uibModalInstance', 'ISSUE'];
+    issueController.$inject = ['$scope', 'ISSUE'];
 
-    function issueController($scope, $uibModalInstance, ISSUE) {
+    function issueController($scope, ISSUE) {
         $scope.issue = ISSUE;
     };
 })();
