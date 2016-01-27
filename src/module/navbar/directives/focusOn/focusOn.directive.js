@@ -6,6 +6,7 @@
         .directive('rpFocusOnShow', focusOnShowDirective);
 
     focusOnShowDirective.$inject = ['$timeout'];
+    /* istanbul ignore next */
     function focusOnShowDirective($timeout) {
         var directive = {
             link: link,

@@ -4,7 +4,7 @@
     angular
         .module('rp.stars')
         .directive('rpStarField', starFieldDirective);
-
+    /* istanbul ignore next */
     function starFieldDirective() {
         var directive = {
             link: link,

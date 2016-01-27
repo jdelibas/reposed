@@ -4,7 +4,7 @@
     angular
         .module('rp.issues')
         .directive('rpStateBadge', stateBadgeDirective);
-
+    /* istanbul ignore next */
     function stateBadgeDirective() {
         var directive = {
             link: link,

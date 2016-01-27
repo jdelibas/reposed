@@ -4,7 +4,7 @@
     angular
         .module('rp.navbar')
         .directive('rpTrianglify', trianglifyDirective);
-
+    /* istanbul ignore next */
     function trianglifyDirective() {
         var directive = {
             link: link,
