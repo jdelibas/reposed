@@ -16,7 +16,6 @@
         return directive;
 
         function link(scope, element, attrs) {
-            console.log(element);
             var camera, scene, renderer, clock, container, geometry, particles;
             var mouseX = 0, mouseY = 0, starsAdded = 0;
 
@@ -27,14 +26,11 @@
             var renderWidth = element[0].parentNode.clientWidth;
 
             scope.$watch('data', function() {
-                console.log(scope.data);
-                console.log('watch fired');
                 init();
                 animate();
             });
 
             function init() {
-
                 container = angular.element('<div />');
                 element.append(container);
 
@@ -66,7 +62,6 @@
                         });
 
                         particles = new THREE.Points(geometry, material);
-
                         particles.rotation.x = Math.random() * 6;
                         particles.rotation.y = Math.random() * 6;
                         particles.rotation.z = Math.random() * 6;
@@ -89,15 +84,11 @@
                 window.addEventListener('mousemove', onDocumentMouseMove, false);
                 window.addEventListener('touchstart', onDocumentTouchStart, false);
                 window.addEventListener('touchmove', onDocumentTouchMove, false);
-
-                //
-
                 window.addEventListener('resize', onWindowResize, false);
 
             }
 
             function onWindowResize() {
-
                 windowHalfX = window.innerWidth / 2;
                 windowHalfY = window.innerHeight / 2;
 
@@ -108,14 +99,11 @@
                 camera.updateProjectionMatrix();
 
                 renderer.setSize(renderWidth, renderHeight);
-
             }
 
             function onDocumentMouseMove(event) {
-
                 mouseX = event.clientX - windowHalfX;
                 mouseY = event.clientY - windowHalfY;
-
             }
 
             function onDocumentTouchStart(event) {
@@ -141,28 +129,17 @@
 
             function render() {
                 var time = Date.now() * 0.00005;
-
                 camera.position.x += (mouseX - camera.position.x) * 0.05;
                 camera.position.y += (-mouseY - camera.position.y) * 0.05;
-
                 camera.lookAt(scene.position);
 
-                //addStar();
-
                 for (var i = 0; i < scene.children.length; i ++) {
-
                     var object = scene.children[ i ];
-
                     if (object instanceof THREE.Points) {
-
                         object.rotation.y = time * (i < 4 ? i + 1 : -(i + 1));
-
                     }
-
                 }
-
                 renderer.render(scene, camera);
-
             }
 
         }
