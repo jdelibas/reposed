@@ -18,12 +18,12 @@
                         templateUrl: 'navbar/navbar.view.html',
                         controller: 'rp.navbar.controller',
                         resolve: {
-                            POPULAR: function($q, api) {
+                            POPULAR: ['api', function(api) {
                                 return api.searchRepos({
                                     q: 'a',
                                     sort: 'stars'
                                 });
-                            }
+                            }]
                         }
                     }
                 }
@@ -35,18 +35,18 @@
                         templateUrl: 'home/home.view.html',
                         controller: 'rp.home.controller',
                         resolve : {
-                            LATEST: function($q, api) {
+                            LATEST: ['api', function(api) {
                                 return api.searchRepos({
                                     q: 'a',
                                     sort: 'updated'
                                 });
-                            },
-                            POPULAR: function($q, api) {
+                            }],
+                            POPULAR: ['api', function(api) {
                                 return api.searchRepos({
                                     q: 'a',
                                     sort: 'stars'
                                 });
-                            }
+                            }]
                         }
                     }
                 }
@@ -58,7 +58,9 @@
                         templateUrl: 'search/search.view.html',
                         controller: 'rp.search.controller',
                         resolve : {
-                            RESULTS: function($q, api, $stateParams) {
+                            RESULTS: ['$q', 'api', '$stateParams',
+                            /* istanbul ignore next */
+                                      function($q, api, $stateParams) {
                                 var deferred = $q.defer();
                                 api.searchRepos({
                                     q: $stateParams.q
@@ -72,7 +74,7 @@
                                         deferred.reject(err);
                                     });
                                 return deferred.promise;
-                            }
+                            }]
                         }
                     }
                 }
@@ -85,11 +87,13 @@
                         templateUrl: 'repo/repo.view.html',
                         controller: 'rp.repo.controller',
                         resolve : {
-                            REPO: function($q, api, $stateParams) {
+                            REPO: ['api', '$stateParams',
+                            /* istanbul ignore next */
+                                   function(api, $stateParams) {
                                 return api.getRepo({
                                     repo: $stateParams.repo
                                 });
-                            }
+                            }]
                         }
                     }
                 }
@@ -101,11 +105,13 @@
                         templateUrl: 'issues/issues.view.html',
                         controller: 'rp.issues.controller',
                         resolve : {
-                            ISSUES: function($q, api, $stateParams) {
+                            ISSUES: ['api', '$stateParams',
+                            /* istanbul ignore next */
+                                     function(api, $stateParams) {
                                 return api.getIssues({
                                     repo: $stateParams.repo
                                 });
-                            }
+                            }]
                         }
                     }
                 }
