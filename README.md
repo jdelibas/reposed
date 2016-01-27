@@ -39,6 +39,21 @@ The structure of the app is based on the module per feature pattern and is gener
 * had to hard reference fork for angular-typewrite in bower.json
   * https://github.com/antoniocapelo/angular-typewrite/pull/7
 
+Continous deployment enabled via CircleCI to Heroku. No staging environment setup though, so directly to master.
+
+Tests run by karma and covered by istanbul. Builds fail unless 100% coverage (some ignores present...)
+
+#### Build features
+
+* html changes if dev or dist
+* bower packages auto included
+* modules folders get concat into a single file
+* all views are saved to $templateCache(no http calls)
+* dist minifys all angular code
+* dist concats all bower deps into one
+* testing generates coverage reports
+* basic express server included for dist
+
 #### Whats missing?
 
 * no protractor tests
