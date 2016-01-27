@@ -1,0 +1,8 @@
+<div class="alert alert-info" role="alert" ng-if="repo.stargazers_count < 1000">
+    Not enough stars found for {{ repo.full_name }}
+</div>
+
+<div ng-if="repo.stargazers_count > 1000">
+    <h4> Stars: {{ repo.stargazers_count }} </h4>
+    <rp-star-field data="repo" />
+</div>
