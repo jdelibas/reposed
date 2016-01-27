@@ -6,7 +6,7 @@
   "main": "src/index.html",
   "scripts": {
     "test": "grunt test",
-    "postinstall": "node node_modules/bower/bin/bower install && node node_modules/grunt-cli/bin/grunt build"
+    "postinstall": "node node_modules/bower/lib/bin/bower install && node node_modules/grunt-cli/bin/grunt build"
   },
   "devDependencies": {
     "bower": "^1.7.5",
