@@ -1,9 +1,6 @@
 test:
   pre:
     - bower install
-start:
-  pre:
-    - grunt build
 deployment:
   production:
     branch: master
