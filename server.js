@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var port = process.env.PORT || 3000;
 
 app.use('/coverage', express.static(__dirname + '/coverage/report-html'));
 
@@ -10,6 +11,6 @@ app.all('/*', function(req, res) {
     res.sendfile(__dirname + '/dist/index.html');
 });
 
-app.listen(3000, function () {
-    console.log('Example app listening on port 3000!');
+app.listen(port, function () {
+    console.log('Server started');
 });
