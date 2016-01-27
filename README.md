@@ -1,3 +1,7 @@
+reposed
+
+[![Circle CI](https://circleci.com/gh/jdelibas/reposed/tree/master.svg?style=shield)](https://circleci.com/gh/jdelibas/reposed/tree/master)
+
 Get started
 
 * npm install
