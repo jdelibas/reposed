@@ -5,7 +5,8 @@
   "author": "James Delibas",
   "main": "src/index.html",
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt test",
+    "postInstall": "bower install"
   },
   "devDependencies": {
     "grunt": "~0.4.5",
