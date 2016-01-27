@@ -1,0 +1,31 @@
+<div class="alert alert-info" role="alert" ng-if="issues.length === 0">
+    No issues found for {{ repo.full_name }}.
+</div>
+
+<table class="table table-condensed" ng-if="issues.length > 0">
+    <thead>
+        <tr>
+            <th> Status </th>
+            <th> Title </th>
+            <th> Comments </th>
+            <th> Created </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="issue in issues track by $index" ng-if="$index <= 10">
+            <td>
+                <rp-state-badge state="issue.state" />
+            </td>
+            <td>
+                <a href="" ng-click="viewIssue(issue)"> {{ issue.title }} </a>
+            </td>
+            <td>
+                <span class="badge">
+                    <span class="glyphicon glyphicon-comment"> </span>
+                    {{ issue.comments }}
+                </span>
+            </td>
+            <td> {{ issue.created_at | date: 'mediumDate' }} </td>
+        </tr>
+    </tbody>
+</table>

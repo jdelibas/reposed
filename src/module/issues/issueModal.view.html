@@ -1,0 +1,19 @@
+<div class="modal-header">
+    <h3 class="modal-title">{{ issue.title }}</h3>
+    <rp-state-badge state="issue.state" />
+</div>
+<div class="modal-body">
+    <div class="media">
+      <div class="media-left media-top">
+        <a href="#" uib-popover="Raised by: {{ issue.user.login }}" popover-trigger="mouseenter">
+          <img class="media-object" ng-src="{{ issue.user.avatar_url }}&size=64" width="64" height="64" title="Raised by: {{ issue.user.login }}">
+        </a>
+      </div>
+      <div class="media-body">
+          <div btf-markdown="issue.body" />
+      </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <a href="{{ issue.html_url }}"> View full discussion </a>
+</div>
