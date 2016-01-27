@@ -6,8 +6,7 @@
   "main": "src/index.html",
   "scripts": {
     "test": "grunt test",
-    "postInstall": "bower install",
-    "build" : "grunt build"
+    "postinstall": "bower install && grunt build"
   },
   "devDependencies": {
     "grunt": "~0.4.5",
