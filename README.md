@@ -4,6 +4,9 @@
 
 ### Get started
 
+* [view deployed site](https://reposed.herokuapp.com/)
+* [view coverage report](https://reposed.herokuapp.com/coverage)
+
 #### Development
 
 * npm install
