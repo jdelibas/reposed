@@ -19,21 +19,13 @@
                 controller: 'rp.issueModal.controller',
                 size: 'lg',
                 resolve: {
-                    ISSUE: function() {
+                    ISSUE:
+                    /* istanbul ignore next */
+                    function() {
                         return issue;
                     }
                 }
             });
         };
-
-        $scope.updateFilters = function() {
-            for (var filter in $scope.filters) {
-                if ($scope.filters.hasOwnProperty(filter) &&
-                    $scope.filters[filter]) {
-                    $state.params[filter] = $scope.filters[filter];
-                }
-            }
-            $state.go('.', $stateParams, {reload: true});
-        }
     };
 })();
