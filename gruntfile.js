@@ -188,7 +188,7 @@ module.exports = function(grunt) {
         'watch'
     ]);
 
-    grunt.registerTask('build', [
+    grunt.registerTask('build-dev', [
         'clean',
         'prepModules',
         'concat',
@@ -198,5 +198,9 @@ module.exports = function(grunt) {
         'includeSource',
         'wiredep'
     ]);
+
+    grunt.registerTask('dev', function() {
+        grunt.task.run(['build-dev', 'serve']);
+    });
 
 };

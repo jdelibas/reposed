@@ -5,8 +5,6 @@
   "author": "James Delibas",
   "main": "src/index.html",
   "scripts": {
-    "start": "grunt serve",
-    "postinstall": "bower install && grunt build && grunt serve",
     "test": "grunt test"
   },
   "devDependencies": {
