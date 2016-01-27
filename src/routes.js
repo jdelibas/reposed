@@ -1,4 +1,4 @@
-angular.module('re-polished')
+angular.module('reposed')
   .config(
     function($stateProvider, $urlRouterProvider) {
 

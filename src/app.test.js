@@ -11,13 +11,13 @@ describe('angular', function () {
 
 });
 
-describe('module re-polished', function () {
+describe('module reposed', function () {
 
     it('should exist', function () {
         // Arrange
         // Act
         // Assert
-        expect(angular.module('re-polished')).toBeDefined();
+        expect(angular.module('reposed')).toBeDefined();
     });
 
 });
