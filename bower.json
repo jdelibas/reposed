@@ -1,0 +1,29 @@
+{
+  "name": "reposed",
+  "version": "0.0.1",
+  "description": "Github repos search and issue viewer (test)",
+  "author": "James Delibas",
+  "private": true,
+  "dependencies": {
+    "angular": "1.4.9",
+    "angular-ui-router": "ui-router#~0.2.15",
+    "angular-typewrite": "https://github.com/jdelibas/angular-typewrite.git#c0df8a4a8c5181f409d10106df42e913aaa69209",
+    "angular-bootstrap": "~1.1.1",
+    "angular-toastr": "~1.6.0",
+    "angular-cache": "~4.5.0",
+    "bootstrap-css-only": "~3.3.6",
+    "angular-animate": "1.4.9",
+    "animate.css": "~3.5.1",
+    "trianglify": "~0.4.0",
+    "toastr": "~2.1.2",
+    "angular-loading-bar": "~0.8.0",
+    "angular-markdown-directive": "~0.3.1",
+    "three.js": "threejs#*"
+  },
+  "devDependencies": {
+    "angular-mocks": "1.4.9"
+  },
+  "resolutions": {
+    "angular": "1.4.9"
+  }
+}
