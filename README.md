@@ -1,29 +1,31 @@
-reposed
+# reposed
 
 [![Circle CI](https://circleci.com/gh/jdelibas/reposed/tree/master.svg?style=shield)](https://circleci.com/gh/jdelibas/reposed/tree/master)
 
-Get started
+### Get started
 
-Development
+#### Development
+
 * npm install
 * bower install
 * grunt build-dev
 * grunt serve
 
-Production
+#### Production
+
 * npm install
 * bower install
 * grunt build
 * node server
 
-Grunt should take care of the rest, dev mode only(server port 3001) automatically runs bower, build and serve.
-
-Grunt commands
+#### Grunt commands
 
 * grunt build
+* grunt build-dev
 * grunt serve
 * grunt test
 
+#### Notes
 
 The code style closely follows john papas style guide for angular.
 
@@ -31,13 +33,10 @@ The code style closely follows john papas style guide for angular.
 
 The structure of the app is based on the module per feature pattern and is generated using grunt using a custom build method.
 
-
-Notes
-
 * had to hard reference fork for angular-typewrite in bower.json
   * https://github.com/antoniocapelo/angular-typewrite/pull/7
 
-Whats missing?
+#### Whats missing?
 
 * no protractor tests
 * controlleras syntax not used
