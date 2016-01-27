@@ -92,7 +92,12 @@ module.exports = function(grunt) {
             },
             dev: {
                 files: {
-                    'dev/index.html': 'src/index.html'
+                    'dev/index.html': 'dev/index.html'
+                }
+            },
+            dist: {
+                files: {
+                    'dist/index.html': 'dist/index.html'
                 }
             }
         },
@@ -109,13 +114,24 @@ module.exports = function(grunt) {
                   }
                 ],
             },
-            assets: {
+            assetsDev: {
                 files: [
                   {
                       expand: true,
                       cwd: 'src/',
                       src: ['assets/*'],
                       dest: 'dev/',
+                      filter: 'isFile'
+                  }
+                ],
+            },
+            assetsDist: {
+                files: [
+                  {
+                      expand: true,
+                      cwd: 'src/',
+                      src: ['assets/*'],
+                      dest: 'dist/',
                       filter: 'isFile'
                   }
                 ],
@@ -138,7 +154,34 @@ module.exports = function(grunt) {
             }
         },
 
-        clean : ['dev']
+        clean : ['dev'],
+
+        uglify: {
+            options: {
+                mangle: false
+            },
+            distApp: {
+                src: ['dev/**/*.js', '!dev/**/*.tpl.js'],
+                dest: 'dist/reposed-app.js'
+            },
+            distTpl: {
+                src: ['dev/**/*.tpl.js'],
+                dest: 'dist/reposed-templates.js'
+            }
+        },
+
+        targethtml: {
+            dist: {
+                files: {
+                    'dist/index.html': 'src/index.html'
+                }
+            },
+            dev: {
+                files: {
+                    'dev/index.html': 'src/index.html'
+                }
+            }
+        }
     });
 
     grunt.loadNpmTasks('grunt-contrib-watch');
@@ -152,6 +195,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-angular-templates');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-newer');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-targethtml');
 
     grunt.registerTask('prepModules', 'module concat', function() {
         grunt.file.expand('src/module/*').forEach(function (dir) {
@@ -190,17 +235,42 @@ module.exports = function(grunt) {
 
     grunt.registerTask('build-dev', [
         'clean',
+        'targethtml:dev',
         'prepModules',
         'concat',
         'prepTemplates',
         'ngtemplates',
         'copy',
-        'includeSource',
+        'includeSource:dev',
         'wiredep'
     ]);
 
     grunt.registerTask('dev', function() {
         grunt.task.run(['build-dev', 'serve']);
+    });
+
+    grunt.registerTask('build', function() {
+        var concat = grunt.config.get('concat') || {};
+        concat['bower-js'] = {
+            src: deps.js,
+            dest: 'dist/reposed-3p-deps.js'
+        };
+        concat['bower-css'] = {
+            src: deps.css,
+            dest: 'dist/reposed-3p-deps.css'
+        };
+        grunt.config.set('concat', concat);
+        grunt.task.run([
+            'clean',
+            'targethtml:dist',
+            'prepModules',
+            'concat',
+            'prepTemplates',
+            'ngtemplates',
+            'copy',
+            'uglify',
+            'includeSource:dist'
+        ]);
     });
 
 };

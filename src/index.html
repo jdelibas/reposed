@@ -2,11 +2,17 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <base href="/">
     <title>reposed</title>
-    <!-- bower:css -->
-    <!-- endbower -->
     <link rel="shortcut icon" type="image/x-icon" href="assets/ab-favicon.ico"/>
-    <script src="http://localhost:35729/livereload.js"></script>
+    <!--(if target dev)><!-->
+        <!-- bower:css -->
+        <!-- endbower -->
+        <script src="http://localhost:35729/livereload.js"></script>
+    <!--<!(endif)-->
+    <!--(if target dist)><!-->
+        <!-- include: "type": "css", "files": "*.css", "basePath": "dist", "baseUrl": "" -->
+    <!--<!(endif)-->
   </head>
   <style>
     .label-as-badge {
@@ -14,17 +20,16 @@
     }
   </style>
   <body ng-app="reposed">
-
     <div ui-view="navbar"></div>
     <div ui-view="content"></div>
-
-    <!-- bower:js -->
-    <!-- endbower -->
-
-    <!-- include: "type": "js", "files": "*.js", "basePath": "dev", "baseUrl": "" -->
-    <!-- include: "type": "js", "files": "modules/*.js", "basePath": "dev", "baseUrl": "" -->
-
+    <!--(if target dev)><!-->
+        <!-- bower:js -->
+        <!-- endbower -->
+        <!-- include: "type": "js", "files": "*.js", "basePath": "dev", "baseUrl": "" -->
+        <!-- include: "type": "js", "files": "modules/*.js", "basePath": "dev", "baseUrl": "" -->
+    <!--<!(endif)-->
+    <!--(if target dist)><!-->
+        <!-- include: "type": "js", "files": "*.js", "basePath": "dist", "baseUrl": "" -->
+    <!--<!(endif)-->
   </body>
-
-
 </html>
