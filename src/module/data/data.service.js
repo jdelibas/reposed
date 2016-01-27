@@ -23,6 +23,7 @@
         function searchRepos(params) {
             var url = urlBase + '/search/repositories?';
             for (var key in params) {
+                /* istanbul ignore next */
                 if (params.hasOwnProperty(key)) {
                     url += key + '=' + params[key] + '&';
                 }
@@ -37,9 +38,7 @@
 
         function getIssues(params) {
             var url = urlBase + '/search/issues?q=';
-            if (params.repo) {
-                url += 'repo:' + decodeURIComponent(params.repo);
-            }
+            url += 'repo:' + decodeURIComponent(params.repo);
             if (params.status) {
                 url += ' state:' + params.status;
             }
