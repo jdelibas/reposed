@@ -6,12 +6,13 @@
   "main": "src/index.html",
   "scripts": {
     "test": "grunt test",
-    "postinstall": "bower install && grunt build"
+    "postinstall": "node node_modules/bower/bin/bower install && node node_modules/grunt-cli/bin/grunt build"
   },
   "devDependencies": {
     "bower": "^1.7.5",
     "grunt": "~0.4.5",
     "grunt-angular-templates": "~0.5.7",
+    "grunt-cli": "^0.1.13",
     "grunt-contrib-clean": "~0.6.0",
     "grunt-contrib-concat": "~0.5.1",
     "grunt-contrib-connect": "~0.9.0",
