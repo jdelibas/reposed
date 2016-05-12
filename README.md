@@ -60,3 +60,4 @@ Tests run by karma and covered by istanbul. Builds fail unless 100% coverage (so
 * controlleras syntax not used
 * could replace $scope with this in the controllers
 * no doc blocks
+* 
