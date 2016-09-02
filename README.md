@@ -4,8 +4,8 @@
 
 ### Get started
 
-* [view deployed site](https://reposed.herokuapp.com/)
-* [view coverage report](https://reposed.herokuapp.com/coverage)
+* [view deployed site](https://reposed.jamjar.rocks/)
+* [view coverage report](https://reposed.jamjar.rocks/coverage)
 
 #### Development
 
