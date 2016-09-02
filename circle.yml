@@ -2,7 +2,8 @@ test:
   pre:
     - bower install
 deployment:
-  production:
+  prod:
     branch: master
-    heroku:
-      appname: reposed
+    commands:
+      - aws s3 sync dist s3://reposed.jamjar.rocks/ --delete --region eu-west-1
+      - aws s3 sync coverage/report-html s3://reposed.jamjar.rocks/coverage/ --delete --region eu-west-1
